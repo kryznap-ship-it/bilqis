@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Love for Bilqis ❤️</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+font-family:Arial, sans-serif;
+}
+
+body{
+background:linear-gradient(-45deg,#ff9a9e,#fecfef,#d63384,#ff9a9e);
+background-size:400% 400%;
+animation:gradientMove 12s ease infinite;
+min-height:100vh;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+padding:20px;
+text-align:center;
+overflow-x:hidden;
+color:white;
+}
+
+@keyframes gradientMove{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
+
+h1{
+font-size:clamp(2rem,6vw,3rem);
+margin-bottom:20px;
+text-shadow:2px 2px 6px rgba(0,0,0,0.4);
+animation:heartbeat 1.5s infinite alternate;
+}
+
+@keyframes heartbeat{
+from{transform:scale(1)}
+to{transform:scale(1.08)}
+}
+
+.love-card{
+background:rgba(255,255,255,0.95);
+color:#333;
+padding:25px;
+border-radius:20px;
+max-width:500px;
+width:100%;
+box-shadow:0 15px 40px rgba(0,0,0,0.3);
+}
+
+.love-card p{
+margin:15px 0;
+font-size:clamp(1rem,3vw,1.2rem);
+line-height:1.6;
+}
+
+button{
+margin-top:15px;
+padding:12px 30px;
+font-size:1rem;
+border:none;
+border-radius:40px;
+background:linear-gradient(45deg,#ff6b9d,#c44569);
+color:white;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+.hearts{
+font-size:1.8rem;
+margin:15px 0;
+animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+0%,20%,50%,80%,100%{transform:translateY(0)}
+40%{transform:translateY(-10px)}
+60%{transform:translateY(-5px)}
+}
+
+/* floating hearts */
+
+.floating{
+position:fixed;
+bottom:-20px;
+font-size:20px;
+animation:floatUp 5s linear;
+pointer-events:none;
+}
+
+@keyframes floatUp{
+0%{transform:translateY(0);opacity:1}
+100%{transform:translateY(-100vh);opacity:0}
+}
+
+/* fireworks */
+
+.firework{
+position:fixed;
+width:6px;
+height:6px;
+border-radius:50%;
+animation:explode 1s ease-out forwards;
+}
+
+@keyframes explode{
+0%{transform:scale(0);opacity:1}
+100%{transform:scale(15);opacity:0}
+}
+
+.counter{
+margin-top:10px;
+font-weight:bold;
+color:#ffd1ec;
+}
+
+footer{
+margin-top:30px;
+font-size:.9rem;
+opacity:.9;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>I Love You Bilqis ❤️</h1>
+
+<div class="hearts">💖 💕 💗 🌹 💖</div>
+
+<div class="love-card">
+
+<p><strong>Bilqis, my beautiful queen.</strong></p>
+
+<p>
+You make my life brighter every single day.
+Your smile is my favorite view and your love
+is my greatest treasure.
+</p>
+
+<p>
+No matter where life takes us,
+my heart will always belong to you.
+</p>
+
+<button onclick="surprise()">✨ Click for Surprise ✨</button>
+
+<div class="counter" id="counter">❤️ x0</div>
+
+</div>
+
+<footer>
+Made with infinite love for Bilqis 💍
+</footer>
+
+<script>
+
+/* floating hearts system */
+
+let heartLimit = 40;
+
+function createHeart(){
+
+if(document.querySelectorAll('.floating').length > heartLimit) return;
+
+let heart=document.createElement("div");
+
+heart.className="floating";
+
+heart.innerHTML=["💖","💕","💗","🌹"][Math.floor(Math.random()*4)];
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=(20+Math.random()*20)+"px";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>heart.remove(),5000);
+
+}
+
+setInterval(createHeart,500);
+
+
+/* fireworks */
+
+function createFirework(){
+
+let fire=document.createElement("div");
+
+fire.className="firework";
+
+fire.style.left=Math.random()*100+"vw";
+
+fire.style.top=Math.random()*100+"vh";
+
+fire.style.background=["#ff69b4","#ff1493","#db7093","#ff85c1"][Math.floor(Math.random()*4)];
+
+document.body.appendChild(fire);
+
+setTimeout(()=>fire.remove(),1000);
+
+}
+
+
+/* surprise button */
+
+function surprise(){
+
+for(let i=0;i<20;i++){
+
+setTimeout(createFirework,i*80);
+
+}
+
+alert("Bilqis ❤️ You make my heart the happiest in the world!");
+
+}
+
+
+/* love click counter */
+
+let clicks=0;
+
+document.body.addEventListener("click",(e)=>{
+
+if(!e.target.closest("button")){
+
+clicks++;
+
+document.getElementById("counter").innerText="❤️ x"+clicks;
+
+}
+
+});
+
+</script>
+
+</body>
+</html>
